@@ -5,8 +5,15 @@ import { StyleSheet, View } from 'react-native';
 import {Provider as StoreProvider} from "react-redux";
 import Navigation from "./src/components/Navigation";
 import store from "./src/stores/configureStore";
+import Geolocation from "@react-native-community/geolocation";
 
 export default class App extends Component{
+  constructor(props){
+    super(props);
+  }
+  componentDidMount(){
+    Geolocation.getCurrentPosition(info=>console.log(info));
+  }
   render(){
     return (
       <StoreProvider store={store}>
