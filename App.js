@@ -1,18 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
 import {Provider as PaperProvider} from "react-native-paper";
 import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
 import {Provider as StoreProvider} from "react-redux";
 import Navigation from "./src/components/Navigation";
 import store from "./src/stores/configureStore";
-import Geolocation from "@react-native-community/geolocation";
+// import Geolocation from "@react-native-community/geolocation";
 
 export default class App extends Component{
   constructor(props){
     super(props);
   }
   componentDidMount(){
-    Geolocation.getCurrentPosition(info=>console.log(info));
+    // Geolocation.getCurrentPosition(info=>console.log(info));
   }
   render(){
     return (
