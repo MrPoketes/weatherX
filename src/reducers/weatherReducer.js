@@ -15,6 +15,8 @@ const weatherReducer = (state=initialState,action)=>{
                 pressure:action.payload.main.pressure,
                 humidity:action.payload.humidity,
                 clouds:action.payload.clouds.all,
+                description:action.payload.weather[0].description,
+                icon:action.payload.weather[0].icon
             });
             windObj = Object.assign({},windObj,{
                 speed:action.payload.wind.speed,

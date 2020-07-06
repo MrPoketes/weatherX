@@ -2,9 +2,9 @@ import React from "react";
 import {NavigationContainer} from "@react-navigation/native";
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import HomeScreen from "./screens/HomeScreen";
-import SearchScreen from "./screens/SearchScreen";
-import LocationScreen from "./screens/LocationScreen";
+import HomeScreen from "../screens/HomeScreen";
+import SearchScreen from "../screens/SearchScreen";
+import LocationScreen from "../screens/LocationScreen";
 
 const Tab = createMaterialBottomTabNavigator();
 export default function Navigation(){
