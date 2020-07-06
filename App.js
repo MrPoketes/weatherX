@@ -1,24 +1,24 @@
-import {Provider as PaperProvider} from "react-native-paper";
+import {Provider as PaperProvider, Button} from "react-native-paper";
 import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View,PermissionsAndroid } from 'react-native';
 import {Provider as StoreProvider} from "react-redux";
 import Navigation from "./src/components/Navigation";
 import store from "./src/stores/configureStore";
-// import Geolocation from "@react-native-community/geolocation";
+import {Permission, PERMISSION_TYPE,granted} from "./AppPermissions";
 
 export default class App extends Component{
   constructor(props){
     super(props);
   }
   componentDidMount(){
-    // Geolocation.getCurrentPosition(info=>console.log(info));
+    Permission.checkPermission(PERMISSION_TYPE.location);
   }
   render(){
     return (
       <StoreProvider store={store}>
-        <PaperProvider style={styles}>
+          <PaperProvider style={styles}>
             <Navigation/>
-        </PaperProvider>
+          </PaperProvider>
       </StoreProvider>
     );
   }

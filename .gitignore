@@ -20,8 +20,8 @@ DerivedData
 *.hmap
 *.ipa
 *.xcuserstate
-
 apiKey.json
+
 # Android/IntelliJ
 #
 build/

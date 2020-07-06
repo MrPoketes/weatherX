@@ -2,14 +2,28 @@ import React, { Component } from "react";
 import {Text,View} from "react-native";
 import {connect} from "react-redux";
 import {fetchWeatherData} from "../../actions/index.js";
-// import * as apiKey from '../../../apiKey.json';
+import * as apiKey from '../../../apiKey.json';
+import Geolocation from "@react-native-community/geolocation";
+
+// Global variables
+
+var latitude = null;
+var longitude = null;
+// Getting the location
+Geolocation.getCurrentPosition((info)=>{
+  latitude = info.coords.latitude
+  longitude = info.coords.longitude
+});
 
 class HomeScreen extends Component{
     constructor(props){
         super(props);
     }
     componentDidMount(){
-        // this.props.fetchWeatherData("Vilnius",apiKey.apiKey);
+        if(latitude!==null && longitude!==null){
+            this.props.fetchWeatherData(latitude,longitude,apiKey.apiKey);
+        }
+        console.log(this.props.weatherData);
     }
     render(){
         return(
