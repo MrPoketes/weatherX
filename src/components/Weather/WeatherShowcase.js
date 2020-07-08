@@ -13,7 +13,7 @@ const WeatherShowcase = ({cityName,image,temp,feelsLike,description})=>{
                 <Text style={styles.temperature}>{temp}C</Text>
             </View>
             <View>
-                <Text style={styles.tempFeels}>Feels like {Math.round(feelsLike)}</Text>
+                <Text style={styles.tempFeels}>Feels like {Math.round(feelsLike)}C</Text>
                 <Text style={styles.desc}>{description}</Text>
             </View>
         </View>

@@ -20,7 +20,10 @@ DerivedData
 *.hmap
 *.ipa
 *.xcuserstate
+
+# Keys
 apiKey.json
+rapidApi.json
 
 # Android/IntelliJ
 #
