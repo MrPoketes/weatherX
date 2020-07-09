@@ -6,6 +6,7 @@ import Navigation from "./src/components/Navigation";
 import store from "./src/stores/configureStore";
 import {Permission, PERMISSION_TYPE} from "./AppPermissions";
 import HomeScreen from "./src/screens/HomeScreen";
+
 export default class App extends Component{
   constructor(props){
     super(props);
