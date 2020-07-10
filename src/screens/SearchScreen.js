@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import {View,Text} from "react-native";
+import {View} from "react-native";
 import SearchBar from "../components/Search/SearchBar";
 import {List} from "react-native-paper";
 import * as rapidApi from "../../rapidApi.json";
-
 
 export default class SearchScreen extends Component{
     constructor(props){
@@ -13,8 +12,12 @@ export default class SearchScreen extends Component{
         }
         this.search = this.search.bind(this);
     }
+    componentWillUnmount(){
+        this.setState({
+            searchResults:{}
+        })
+    }
     search(query){
-        // Move fetch into another file
         if(query.length>3){
             fetch(`https://wft-geo-db.p.rapidapi.com/v1/geo/cities?limit=5&namePrefix=${query}`,{
                 method:"GET",
@@ -52,7 +55,11 @@ export default class SearchScreen extends Component{
                 {Object.keys(this.state.searchResults).length !==0?
                 <View style={{width:"100%"}}>
                     {this.state.searchResults.data.map((data,i)=>
-                        <List.Item key={i} title={data.city} description={data.country +" "+ data.region} left={props=>
+                        <List.Item key={i} onPress={()=>this.props.navigation.navigate('Selected',{
+                            name:data.city,
+                            country:data.country,
+                            region:data.region
+                        })} title={data.city} description={data.country +" "+ data.region} left={props=>
                             <List.Icon style={{margin:0,marginTop:"1%"}} icon="equal"/>}/>                      
                     )}
                 </View>:

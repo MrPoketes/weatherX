@@ -10,7 +10,7 @@ const WeatherShowcase = ({cityName,image,temp,feelsLike,description})=>{
             </View>
             <View>
                 <Image style={styles.image} source={{uri:`http://openweathermap.org/img/wn/${image}@2x.png`}}/>
-                <Text style={styles.temperature}>{temp}C</Text>
+                <Text style={styles.temperature}>{Math.round(temp)}C</Text>
             </View>
             <View>
                 <Text style={styles.tempFeels}>Feels like {Math.round(feelsLike)}C</Text>
